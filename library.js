@@ -79,8 +79,8 @@ function displayBooks() {
 function makeCard(bookToAdd)
 {
     let card = document.createElement('div');
-    let title = document.createElement('h1');
-    let author = document.createElement('h2');
+    let title = document.createElement('h4');
+    let author = document.createElement('h5');
     let pages = document.createElement('p');
     let isRead = document.createElement('p');
     let readStatusBtn = document.createElement('BUTTON');

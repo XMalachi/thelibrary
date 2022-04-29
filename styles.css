@@ -7,8 +7,7 @@
   .card {
     margin: 1.5vmin;
     text-align: center;
-    height: 30vmin;
-    width: 30vmin;
+    height: 100%;
     background-color: rgba(155, 145, 145, 0.541);
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
     transition: 0.3s;
