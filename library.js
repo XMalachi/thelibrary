@@ -1,20 +1,39 @@
+// this code create the container for all objects in the web page
+// const make the container to unchangeable.
+// document.querySelector chooses a selector in the html called container.
+
 const container = document.querySelector('.container');
 
+// This code is for the buttons  that popsup the form and resets the library
+// The same button that popsup the form adds the book to the library.
+// document.getElemetsById is useed to select an id element, which in this case is "form" and "resetBooks"
+// the addBook and resetCards are the fuunction that tells the javascript to add the books and reset tthe cards
+// the submit and click are the events that will ttrigger the functions. So the computer will wait for a submit to addbook
+//   and it will wait for a click on resetBooks to reset the library 
+// and the functions are wrritten below (check below)
 document.getElementById('form').addEventListener('submit', addBook);
 document.getElementById('resetBooks').addEventListener('click', resetCards);
+
+// this code adds an event listener called click and performs a function called changeBook that is written below
 container.addEventListener("click", changeBook);
 
+// myLibrrary is set to an empty arrray[] so that nothing will show up  at first.
 let myLibrary = [];
 
+// This is a function to receive book information from the user 
 function getBookFromInput(book) {
+  // this will get the book's title value
   let title = document.getElementById('formTitle').value;
+  // this will get the book's author value
   let author = document.getElementById('formAuthor').value;
+
   let pages = document.getElementById('formPages').value;
+
   let isRead = document.querySelector('input[name="formRead"]:checked').value;
   return new Book(title, author, pages, isRead);
 }
 
-
+// this is the function tthat addds the book to tthe librrary
 function addBook(book) {
   let newBook = getBookFromInput(book);
   addBookToLibrary(newBook);
@@ -24,13 +43,16 @@ function addBook(book) {
   document.getElementById("form").reset();
 }
 
+// this is the function that resets the cards
 function resetCards() {
   while(container.firstChild) {
     container.removeChild(container.lastChild);
   }
+  // this makes it all empty by seetting it back to an empty array[]
   myLibrary = [];
 }
 
+// this is tthe buttton thatt removes a book
 function changeBook(e) {
   if (e.target.classList.contains("removeButton")) {
     let index = e.target.getAttribute('data-index');
@@ -76,6 +98,7 @@ function displayBooks() {
     makeCard(myLibrary[myLibrary.length -1]);
 }
 
+// tthis is javascript code that creates the card.
 function makeCard(bookToAdd)
 {
     let card = document.createElement('div');
